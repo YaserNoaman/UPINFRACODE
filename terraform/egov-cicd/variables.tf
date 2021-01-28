@@ -3,11 +3,11 @@
 #
 
 variable "cluster_name" {
-  default = "pmidc-cicd"
+  default = "up-cicd"
 }
 
 variable "vpc_cidr_block" {
-  default = "192.168.0.0/16"
+  default = "10.0.0.0/16"
 }
 
 variable "network_availability_zones" {
@@ -39,5 +39,5 @@ variable "spot_max_price" {
 }
 
 variable "ssh_key_name" {
-  default = "pmidc-cicd"
+  default = "up-cicd"
 }

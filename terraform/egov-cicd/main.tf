@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "pmidc-cicd-terraform-state-store"
+    bucket = "UP-cicd-terraform-state-store"
     key = "terraform"
     region = "ap-south-1"
   }

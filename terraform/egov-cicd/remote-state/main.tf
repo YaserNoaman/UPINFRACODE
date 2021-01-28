@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "pmidc-cicd-terraform-state-store"
+  bucket = "UP-cicd-terraform-state-store"
 
   versioning {
     enabled = true
@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
-  name           = "pmidc-cicd-terraform-state-store"
+  name           = "UP-cicd-terraform-state-store"
   read_capacity  = 1
   write_capacity = 1
   hash_key       = "LockID"
