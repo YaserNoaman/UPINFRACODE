@@ -302,6 +302,8 @@ spec:
               value: "{{ template "jenkins.fullname" . }}-jenkins-config"
             - name: FOLDER
               value: "{{ .Values.master.sidecars.configAutoReload.folder }}"
+            - name: METHOD
+              value: "SLEEP"   
             - name: NAMESPACE
               value: "{{ template "jenkins.namespace" . }}"
             - name: REQ_URL

@@ -1,8 +1,8 @@
 global:
-  domain: builds.egovernments.org
+  domain: builds.dlbup.finance
 cluster-configs:
   namespaces:
-    create: false
+    create: true
     values: [ monitoring, jenkins ]
   root-ingress:
     namespace: jenkins
@@ -21,73 +21,25 @@ jenkins:
     enabled: true
     acl:
       admin:
-        - egovernments*micro-service-devops
+        - UP-digit*micro-service-devops
       user:
-        - egovernments*micro-service-dev
-        - egovernments*ukd-uat
-        - egovernments*bihar-uat
-        - egovernments*tarranto-dev
-        - egovernments*tarrento-ws-dev-team
-        - egovernments*egov-web-app
-        - egovernments*wt-ws-dev-team
-        - egovernments*Devops-partner
-        - egovernments*micro-service-qa
-        - egovernments*micro-service-uat
-        - egovernments*pb-uat
         - egovernments*up-team
-        - egovernments*nugp-team
+        
 
   jobBuilder:
     repos: >-
-      'git@github.com:egovernments/utilities.git','git@github.com:egovernments/core-services.git','git@github.com:egovernments/business-services.git','git@github.com:egovernments/municipal-services.git','git@github.com:egovernments/frontend.git', 'git@github.com:egovernments/eGov-Punjab-Implementation.git', 'git@github.com:egovernments/eGov-dcr-service.git', 'git@github.com:egovernments/eGov-dcrclient-implementation.git', 'git@github.com:egovernments/covid-backend.git','git@github.com:egovernments/requester-dashboard.git','git@github.com:egovernments/approver-dashboard.git','git@github.com:egovernments/eGov-wordpress.git','git@github.com:egovernments/eGov-infraOps.git','git@github.com:egovernments/ukd-rainmaker-customization.git','git@github.com:egovernments/egov-smartcity-suite.git','git@github.com:egovernments/punjab-rainmaker-customization.git', 'git@github.com:egovernments/egov-coexistence.git', 'git@github.com:egovernments/eGov-AP-Implementation.git', 'git@github.com:egovernments/eGov-UP-Implementation.git'
-
-  deploymentJobs:
-    - name: dev
-      acl: [egovernments*micro-service-dev]
-    - name: pb-prod
-      acl: [egovernments*PB-PROD]
-    - name: bihar-prod
-      acl: [egovernments*bihar-prod]
-    - name: bihar-dev
-      acl: [egovernments*bihar-dev]
-    - name: bihar-uat
-      acl: [egovernments*bihar-uat]
-    - name: epass-uat
-      acl: [egovernments*epass]
-    - name: epass-micro-prod
-      acl: [egovernments*epass-micro-prod]
-    - name: pb-qa
-      acl: [egovernments*pb-uat]  
-    - name: pb-uat
-      acl: [egovernments*pb-uat]   
-    - name: qa
-      acl: [egovernments*micro-service-qa] 
-    - name: uat
-      acl: [egovernments*micro-service-uat] 
-    - name: ukd-dev
-      acl: [egovernments*ukd-dev] 
-    - name: ukd-prod-sdc
-      acl: [egovernments*ukd-prod] 
-    - name: ukd-sdc-uat
-      acl: [egovernments*ukd-uat]    
-    - name: pb-uat-v2
-      acl: [egovernments*pb-uat]     
-    - name: pb-prod-v2
-      acl: [egovernments*PB-PROD]             
+      
+  deploymentJobs:             
     - name: ci
-      acl: [egovernments*micro-service-devops]      
+      acl: [UP-digit*micro-service-devops]      
     - name: ukd-dev-sdc
-      acl: [egovernments*ukd-dev]
-    - name: staging
-      acl: [egovernments*staging-qa] 
+      acl: [UP-digit*ukd-dev] 
     - name: up-dev
-      acl: [egovernments*up-dev]
-    - name: nugp-demo
-      acl: [egovernments*nugp-team] 
+      acl: [UP-digit*up-dev] 
     - name: up-uat
-      acl: [egovernments*up-uat]
+      acl: [UP-digit*up-uat]
     - name: up-prod
-      acl: [egovernments*up-prod]   
+      acl: [UP-digit*up-prod]   
        
   master:
     ingress:
@@ -113,7 +65,7 @@ nginx-ingress:
 
 cert-manager:
   namespace: jenkins
-  email: "nithin.dv@egovernments.org"
+  email: "up-aws@egovernments.org"
 
 cluster-autoscaler:
   namespace: jenkins
@@ -122,7 +74,7 @@ cluster-autoscaler:
   autoDiscovery:
     clusterName: egov-cicd
     tags:
-    - kubernetes.io/cluster/egov-cicd
+    - kubernetes.io/cluster/up-cicd
 
 postgres:
   namespace: jenkins

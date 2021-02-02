@@ -1,4 +1,4 @@
-module github.com/egovernments/eGov-infraOps/egov-deployer
+module github.com/UP-digit/UP-InfraOps/egov-deployer
 
 go 1.13
 
