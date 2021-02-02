@@ -2,7 +2,7 @@ global:
   domain: builds.dlbup.finance
 cluster-configs:
   namespaces:
-    create: true
+    create: false
     values: [ monitoring, jenkins ]
   root-ingress:
     namespace: jenkins
@@ -28,12 +28,11 @@ jenkins:
 
   jobBuilder:
     repos: >-
+      ''
       
   deploymentJobs:             
     - name: ci
-      acl: [UP-digit*micro-service-devops]      
-    - name: ukd-dev-sdc
-      acl: [UP-digit*ukd-dev] 
+      acl: [UP-digit*micro-service-devops]
     - name: up-dev
       acl: [UP-digit*up-dev] 
     - name: up-uat
