@@ -2,7 +2,7 @@ global:
   domain: builds.dlbup.finance
 cluster-configs:
   namespaces:
-    create: false
+    create: true
     values: [ monitoring, jenkins ]
   root-ingress:
     namespace: jenkins
@@ -15,7 +15,7 @@ jenkins:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-065e6d826a6f4273b"
+      - volumeId: "vol-0b0f90b8b1d4543fc"
         zone: ap-south-1b
   oauth:
     enabled: true

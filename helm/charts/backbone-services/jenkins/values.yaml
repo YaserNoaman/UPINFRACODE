@@ -163,11 +163,6 @@ master:
         secretKeyRef:
           name: jenkins-credentials
           key: gitReadSshPrivateKey
-    - name: SLACK_TOKEN
-      valueFrom:
-        secretKeyRef:
-          name: jenkins-credentials
-          key: slackToken   
   usePodSecurityContext: true
   # Set runAsUser to 1000 to let Jenkins run as non-root user 'jenkins' which exists in 'jenkins/jenkins' docker image.
   # When setting runAsUser to a different value than 0 also set fsGroup to the same value:
